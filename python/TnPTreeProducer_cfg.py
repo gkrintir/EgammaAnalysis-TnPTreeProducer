@@ -9,7 +9,7 @@ process = cms.Process("tnpEGM")
 ###################################################################
 varOptions = VarParsing('analysis')
 varOptions.register(
-    "isMC", True,
+    "isMC", False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Compute MC efficiencies"
@@ -30,7 +30,7 @@ varOptions.register(
     )
 
 varOptions.register(
-    "doTrigger", False,
+    "doTrigger", True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Include tree for Trigger SF"
@@ -52,7 +52,7 @@ varOptions.register(
     )
 
 varOptions.register(
-    "isAOD", False,
+    "isAOD", True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "switch to run other AOD (for RECO SFs)"
@@ -213,7 +213,7 @@ process.tnpEleTrig = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                                              passingLoose   = cms.InputTag("probeEleCutBasedLoose80X" ),
                                                              passingMedium  = cms.InputTag("probeEleCutBasedMedium80X"),
                                                              passingTight   = cms.InputTag("probeEleCutBasedTight80X" ),
-                                                             passingHLTsafe = cms.InputTag("probeEleHLTsafe"),
+                                                             #passingHLTsafe = cms.InputTag("probeEleHLTsafe"),
                                                              ),
                                     probeMatches  = cms.InputTag("genProbeEle"),
                                     allProbes     = cms.InputTag("probeEle"),
@@ -241,7 +241,7 @@ process.tnpEleIDs = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                                             passingTight80X   = cms.InputTag("probeEleCutBasedTight80X" ),
                                                             passingMVA80Xwp90 = cms.InputTag("probeEleMVA80Xwp90" ),
                                                             passingMVA80Xwp80 = cms.InputTag("probeEleMVA80Xwp80" ),
-                                                            passingHLTsafe    = cms.InputTag("probeEleHLTsafe"),
+                                                            #passingHLTsafe    = cms.InputTag("probeEleHLTsafe"),
                                                             ),
                                     probeMatches  = cms.InputTag("genProbeEle"),
                                     allProbes     = cms.InputTag("probeEle"),

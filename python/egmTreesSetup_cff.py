@@ -156,9 +156,9 @@ def setSequences(process, options):
     process.sc_sequence += process.probeSC
     process.sc_sequence += process.probeSCEle
 
-    if not options['useAOD'] :
+    if options['useAOD'] :
         process.ele_sequence = cms.Sequence(
-            process.probeEleHLTsafe           +
+            #process.probeEleHLTsafe           +
             process.probeEleCutBasedVeto      +
             process.probeEleCutBasedLoose     +
             process.probeEleCutBasedMedium    +
